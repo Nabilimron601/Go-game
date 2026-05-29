@@ -24,3 +24,15 @@ void board::display() {
         cout << endl;
     }
 }
+bool board::stone(int row, int col, cell player){
+    if (row < 0 || row >= size || col < 0 || col >= size) {
+        cout << "Posisi di luar papan!" << endl;
+        return false;
+    }
+    if (grid[row][col] != empty) {
+        cout << "Posisi sudah terisi" << endl;
+        return false;
+    }
+    grid[row][col] = player;
+    return true;
+}
