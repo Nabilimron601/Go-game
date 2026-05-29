@@ -36,3 +36,7 @@ bool board::stone(int row, int col, cell player){
     grid[row][col] = player;
     return true;
 }
+
+cell board::getcell(int row, int col) {
+    return grid[row][col];
+}
