@@ -3,7 +3,7 @@
 using namespace std;
 
 int main(){
-        board board;
+    board board;
     int row, col;
     cell currentPlayer = black;
 

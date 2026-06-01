@@ -40,3 +40,10 @@ bool board::stone(int row, int col, cell player){
 cell board::getcell(int row, int col) {
     return grid[row][col];
 }
+
+bool board::isLiberty(int row, int col) {
+    if (row >= 0 && row < size && col >= 0 && col < size) {
+        return grid[row][col] == empty;
+    }
+    return false;
+}

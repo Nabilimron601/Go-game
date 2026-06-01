@@ -21,6 +21,7 @@ class board{
     void display();
     bool stone(int row, int col, cell player);
     cell getcell (int row, int col);
+    bool isLiberty(int row, int col);
 
 };
 
