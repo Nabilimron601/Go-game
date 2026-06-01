@@ -1,0 +1,27 @@
+# Compiled binaries
+*.exe
+*.out
+*.app
+*.o
+*.obj
+
+# Debug files
+*.pdb
+*.ilk
+
+# VS Code settings (optional, bisa dihapus kalau mau share settings)
+.vscode/
+
+# Build folders
+build/
+bin/
+debug/
+release/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.log
