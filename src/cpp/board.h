@@ -2,6 +2,8 @@
 #define BOARD_H
 
 #include <iostream>
+#include <vector>
+#include <queue>
 using namespace std;
 
 const int size = 9;
@@ -22,7 +24,7 @@ class board{
     bool stone(int row, int col, cell player);
     cell getcell (int row, int col);
     bool isLiberty(int row, int col);
-
+    vector<pair<int,int>> getGroup(int row, int col, cell color);
 };
 
 #endif

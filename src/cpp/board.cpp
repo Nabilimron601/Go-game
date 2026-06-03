@@ -47,3 +47,41 @@ bool board::isLiberty(int row, int col) {
     }
     return false;
 }
+
+vector<pair<int,int>> board::getGroup(int row, int col, cell color) {
+    bool visited[size][size] = {};
+
+    queue<pair<int,int>> q;
+    vector<pair<int,int>> group;
+
+    q.push({row, col});
+    visited[row][col] = true;
+
+    while (!q.empty()) {
+        pair<int,int> curr = q.front();
+        q.pop();
+        int r = curr.first;
+        int c = curr.second;
+
+        group.push_back({r, c});
+
+        int dRow[] = {-1, 1, 0, 0};
+        int dCol[] = {0, 0, -1, 1};
+
+        for (int i = 0; i < 4; i++) {
+            int newRow = r + dRow[i];
+            int newCol = c + dCol[i];
+
+            if (newRow >= 0 && newRow < size && 
+                newCol >= 0 && newCol < size &&
+                !visited[newRow][newCol] &&
+                grid[newRow][newCol] == color) {
+
+                visited[newRow][newCol] = true;
+                q.push({newRow, newCol});
+            }
+        }
+    }
+
+    return group;
+}
