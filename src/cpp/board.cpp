@@ -113,3 +113,28 @@ int board::countLiberties(vector<pair<int,int>> group) {
     }
     return count;
 }
+
+void board::capture(int row, int col, cell opponent) {
+    int dRow[] = {-1, 1, 0, 0};
+    int dCol[] = {0, 0, -1, 1};
+
+    for (int i = 0; i < 4; i++) {
+        int newRow = row + dRow[i];
+        int newCol = col + dCol[i];
+
+        if (newRow >= 0 && newRow < size &&
+            newCol >= 0 && newCol < size &&
+            grid[newRow][newCol] == opponent) {
+
+            vector<pair<int,int>> group = getGroup(newRow, newCol, opponent);
+            int liberties = countLiberties(group);
+
+            if (liberties == 0) {
+                // loop semua anggota grup, set jadi EMPTY
+                for (auto stone : group) {
+                    grid[stone.first][stone.second] = empty;
+                }
+            }
+        }
+    }
+}
