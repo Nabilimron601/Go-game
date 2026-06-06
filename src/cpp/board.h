@@ -25,6 +25,7 @@ class board{
     cell getcell (int row, int col);
     bool isLiberty(int row, int col);
     vector<pair<int,int>> getGroup(int row, int col, cell color);
+    int countLiberties(vector<pair<int,int>> group);
 };
 
 #endif

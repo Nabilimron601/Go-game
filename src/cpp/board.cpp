@@ -85,3 +85,31 @@ vector<pair<int,int>> board::getGroup(int row, int col, cell color) {
 
     return group;
 }
+
+int board::countLiberties(vector<pair<int,int>> group) {
+    bool visited[size][size] = {};
+    int count = 0;
+
+    for (auto stone : group) {
+        int r = stone.first;
+        int c = stone.second;
+
+        int dRow[] = {-1, 1, 0, 0};
+        int dCol[] = {0, 0, -1, 1};
+
+        for (int i = 0; i < 4; i++) {
+            int newRow = r + dRow[i];
+            int newCol = c + dCol[i];
+
+            if (newRow >= 0 && newRow < size &&
+                newCol >= 0 && newCol < size &&
+                !visited[newRow][newCol] &&
+                grid[newRow][newCol] == empty) {
+                
+                visited[newRow][newCol] = true;
+                count++;
+            }
+        }
+    }
+    return count;
+}
